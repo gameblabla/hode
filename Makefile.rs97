@@ -1,7 +1,7 @@
 CC  = /opt/rs97-toolchain/usr/bin/mipsel-linux-gcc
 CXX = /opt/rs97-toolchain/usr/bin/mipsel-linux-g++
 
-SDL_CFLAGS = `/opt/gcw0-toolchain-static/mipsel-buildroot-linux-musl/sysroot/usr/bin/sdl-config --cflags`
+SDL_CFLAGS = `/opt/rs97-toolchain/mipsel-buildroot-linux-musl/sysroot/usr/bin/sdl-config --cflags`
 CXXFLAGS = -O2 -mips32 -flto -fno-common -Wall -Wpedantic $(SDL_CFLAGS) $(DEFINES) 
 LDFLAGS = -lc -lgcc -lSDL -flto -s
 

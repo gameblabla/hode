@@ -176,6 +176,7 @@ static void clearScreen(uint16_t *dst, int dstPitch, int x, int y, int w, int h)
 }
 
 void System_SDL::updateScreen(bool drawWidescreen) {
+	SDL_FillRect(_screen, nullptr, 0);
 	SDL_LockSurface(_screen);
 	uint16_t *dst = (uint16_t *)_screen->pixels;
 	const int dstPitch = _screen->pitch / 2;
@@ -209,7 +210,7 @@ void System_SDL::updateScreen(bool drawWidescreen) {
 	SDL_UnlockSurface(_screen);
 	
 		
-	SDL_BlitSurface(_screen, NULL, rl_screen, NULL);
+	SDL_BlitSurface(_screen, nullptr, rl_screen, nullptr);
 	SDL_Flip(rl_screen);
 	//SDL_UpdateRect(_screen, 0, 0, _screenW * multiplier, _screenH * multiplier);
 	_shakeDx = _shakeDy = 0;
@@ -266,7 +267,7 @@ void System_SDL::startAudio(AudioCallback callback) {
 	desired.freq = SOUNDRATE_HZ;
 	desired.format = AUDIO_S16SYS;
 	desired.channels = 2;
-	desired.samples = 4096;
+	desired.samples = 1024;
 	desired.callback = mixAudioS16;
 	desired.userdata = this;
 	if (SDL_OpenAudio(&desired, 0) == 0) {
@@ -350,11 +351,11 @@ void System_SDL::updateKeys(PlayerInput *inp) {
 
 void System_SDL::prepareScaledGfx(int scaler) {
 	rl_screen = SDL_SetVideoMode(_screenW, _screenH, 16, SDL_HWSURFACE
-	#ifdef SDL_TRIPLEBUF
+#ifdef SDL_TRIPLEBUF
 	| SDL_TRIPLEBUF
-	#else
+#else
 	| SDL_DOUBLEBUF
-	#endif
+#endif
 	);
 	_screen = SDL_CreateRGBSurface(SDL_SWSURFACE, _screenW, _screenH, 8, 0, 0, 0, 0);
 	//_screen = SDL_SetVideoMode(_screenW, _screenH, 8, SDL_SWSURFACE);
