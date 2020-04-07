@@ -1,0 +1,2 @@
+#!/bin/sh
+mksquashfs ./opk hode_"$1".opk -all-root -noappend -no-exports -no-xattrs

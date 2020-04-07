@@ -3,7 +3,7 @@
 #include <dirent.h>
 #include <sys/stat.h>
 #include <sys/param.h>
-#include <sys/unistd.h>
+#include <unistd.h>
 #include "fs.h"
 #include "util.h"
 

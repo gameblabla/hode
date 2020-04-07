@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=HODE
+Comment=Heart Of Darkness (needs data)
+Exec=./run.sh %f
+Icon=icon
+Terminal=false
+Type=Application
+Categories=games;
