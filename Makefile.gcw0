@@ -1,8 +1,8 @@
-CC  = /opt/gcw0-toolchain-static/usr/bin/mipsel-linux-gcc
-CXX = /opt/gcw0-toolchain-static/usr/bin/mipsel-linux-g++
+CC  = /opt/gcw0-toolchain/usr/bin/mipsel-linux-gcc
+CXX = /opt/gcw0-toolchain/usr/bin/mipsel-linux-g++
 
-SDL_CFLAGS = `/opt/gcw0-toolchain-static/mipsel-buildroot-linux-musl/sysroot/usr/bin/sdl-config --cflags`
-CXXFLAGS = -O2 -mips32r2 -fno-common -flto -Wall -Wpedantic $(SDL_CFLAGS) $(DEFINES) 
+SDL_CFLAGS = `/opt/gcw0-toolchain/mipsel-buildroot-linux-musl/sysroot/usr/bin/sdl-config --cflags`
+CXXFLAGS = -Ofast -mips32r2 -fno-common -flto -Wall -Wpedantic $(SDL_CFLAGS) $(DEFINES) 
 LDFLAGS = -lc -lgcc -lSDL -lasound -flto -s
 
 SRCS = andy.cpp benchmark.cpp fileio.cpp fs_posix.cpp game.cpp \
